@@ -24,7 +24,7 @@
  */
 package haxe;
 
-class NodeTimer {
+class Timer {
 	#if (neko || php)
 	#else
 
