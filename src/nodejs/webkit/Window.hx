@@ -39,7 +39,7 @@ extern class Window {
 	public static function get() : Window;
 	public static function open( url : String, ?options : { } ) : Window;
 	
-	static function __init__() : Void untyped {
+	private static function __init__() : Void untyped {
 		Window = UI.Window;
 	}
 }
