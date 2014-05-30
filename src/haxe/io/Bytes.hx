@@ -218,7 +218,7 @@ class Bytes {
 		return readString(0,length);
 		#end
 	}
-	
+
 	public function toHex() : String {
 		var s = new StringBuf();
 		var chars = [];
@@ -258,7 +258,9 @@ class Bytes {
 		if (length>0) a[length-1] = untyped 0;
 		return new Bytes(length,a);
 		#elseif (nodejs || nodejs_std)
-    return new Bytes(length,new js.Node.NodeBuffer(length));
+		var b = new js.Node.NodeBuffer(length);
+		b.fill(0,0);
+    return new Bytes(length,b);
 
     #else
 		var a = new Array();
