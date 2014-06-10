@@ -39,6 +39,8 @@ class BytesBuffer {
 	var b : Array<Int>;
 	#end
 
+	public var length(get, never) : Int;
+
 	public function new() {
 		#if neko
 		b = untyped StringBuf.__make();
@@ -143,5 +145,10 @@ class BytesBuffer {
 		#end
 		b = null;
 		return bytes;
+	}
+
+
+	inline function get_length() {
+		return b.length;
 	}
 }
