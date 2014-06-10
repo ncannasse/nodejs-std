@@ -848,12 +848,6 @@ typedef NodeZLib = {
 	function unzip(buf:NodeBuffer,cb:NodeErr->Dynamic->Void):Void;
 }
 
-@:native("Error")
-extern class Error
-{
-	public function new(msg : String) : Void;
-}
-
 // Node Constants
 class NodeC {
 	public static inline var UTF8 = "utf8";
