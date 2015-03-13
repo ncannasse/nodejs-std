@@ -1,7 +1,8 @@
 package nodejs.webkit;
 
+@:jsRequire("nw.gui", "Window")
 extern class Window {
-	public var window : js.html.DOMWindow;
+	public var window : #if (haxe_ver >= 3.2) js.html.Window #else js.html.DOMWindow #end;
 	public var x : Int;
 	public var y : Int;
 	public var width : Int;
@@ -30,16 +31,13 @@ extern class Window {
 	public function leavFullscreen() : Void;
 	public function showDevTools( ?id : String, ?headless : Bool ) : Void;
 	public function closeDevTools() : Void;
-	
+
 	@:overload(function( event : String, callb : Dynamic -> Dynamic ) : Void {})
 	@:overload(function( event : String, callb : Void -> Dynamic ) : Void {})
 	@:overload(function( event : String, callb : Dynamic -> Void ) : Void {})
 	public function on( event : String, callb : Void -> Void ) : Void;
-	
+
 	public static function get() : Window;
 	public static function open( url : String, ?options : { } ) : Window;
-	
-	private static function __init__() : Void untyped {
-		Window = UI.Window;
-	}
+
 }
